@@ -1,0 +1,25 @@
+body {
+  background-color: lightblue;
+}
+
+.formContainer {
+  margin-left: 30px;
+  padding: 15px;
+  width: 50%;
+}
+
+.profilePic {
+  border-radius: 15%;
+  height: 150px;
+  margin: 40px;
+  width: 150px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cardDiv {
+  margin: 20px;
+}

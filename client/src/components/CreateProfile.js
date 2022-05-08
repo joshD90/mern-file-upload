@@ -114,8 +114,6 @@ function CreateProfile() {
           />
         </form>
       </div>
-      {/* src filepath is only relative to the proxy that we have set up in the package.json */}
-      <img className="profilePic" src="/profilepic" />
     </div>
   );
 }

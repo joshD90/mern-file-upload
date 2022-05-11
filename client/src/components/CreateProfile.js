@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function CreateProfile() {
+function CreateProfile(props) {
   //tracking changes in our form inputs
   const [file, setFile] = useState();
   const [name, setName] = useState();

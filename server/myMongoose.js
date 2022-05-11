@@ -35,4 +35,13 @@ async function findProfile(searchObj) {
   }
 }
 
-module.exports = { createProfile, findProfile };
+async function updateProfile(id, newInfoObj) {
+  try {
+    const updated = await Profile.findByIdAndUpdate(id, newInfoObj);
+    return updated;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { createProfile, findProfile, updateProfile };

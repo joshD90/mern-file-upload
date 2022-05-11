@@ -38,6 +38,11 @@ function FindProfile() {
         //on response we need to remap out data into another array to include
         //a change of pathname and fullname which will fit into the necessary
         //information required in the card
+        console.log(res.data);
+        if (res.data === "This is not a valid search option") {
+          setProfileList(res.data);
+          return;
+        }
         setProfileList(
           res.data.map((profile) => {
             //we can get a consistant path that will match with the correct
@@ -52,6 +57,7 @@ function FindProfile() {
             const fullName = profile.fName + " " + profile.sName;
             //returning the newly mapped object into the profile list array
             return {
+              _id: profile._id,
               picPath: shortenedPath,
               fullName: fullName,
               email: profile.email,
@@ -66,17 +72,23 @@ function FindProfile() {
     <div className="cardContainer">
       {/* now that we have the adjusted values we can map the values directly onto
       our profile card component */}
-      {profileList.map((profile, index) => {
-        return (
-          <div className="cardDiv" key={index}>
-            <ProfileCard
-              foundProfPic={profile.picPath}
-              fullName={profile.fullName}
-              email={profile.email}
-            />
-          </div>
-        );
-      })}
+      {profileList === "This is not a valid search option" && (
+        <h1>{profileList}</h1>
+      )}
+
+      {profileList !== "This is not a valid search option" &&
+        profileList.map((profile, index) => {
+          return (
+            <div className="cardDiv" key={index}>
+              <ProfileCard
+                id={profile._id}
+                foundProfPic={profile.picPath}
+                fullName={profile.fullName}
+                email={profile.email}
+              />
+            </div>
+          );
+        })}
     </div>
   );
 }

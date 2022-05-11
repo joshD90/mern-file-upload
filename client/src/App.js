@@ -11,6 +11,7 @@ import FindProfile from "./components/FindProfile";
 import Tester from "./components/Tester";
 import NavBar from "./components/NavBar";
 import SearchProfile from "./components/SearchProfile";
+import UpdateProfile from "./components/UpdateProfile";
 //use the app component to only hold the routes.  Routes are used through
 //react router dom.
 function App() {
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profile" element={<FindProfile />} />
         <Route path="/search" element={<SearchProfile />} />
         <Route path="/test" element={<Tester />} />
+        <Route path="/profile/update/:id" element={<UpdateProfile />} />
       </Routes>
     </Router>
   );
